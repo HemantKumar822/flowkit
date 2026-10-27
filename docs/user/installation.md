@@ -9,7 +9,7 @@ FlowKit 0.3.0-preview.1 supports explicit host paths and user/project scope. The
 - An AI coding agent with skill discovery and local command execution.
 - Optional: GitHub CLI with authentication for CLI GitHub operations; browser, design and Superpowers capabilities for their respective workflows.
 
-Read the [compatibility matrix](compatibility.md) before choosing a host. Download/extract a versioned archive or obtain the source repository. No public repository URL or registry-install command is advertised until publication is available. Do not execute an unreviewed installer copied from an unrelated source.
+Read the [compatibility matrix](compatibility.md) before choosing a host. Download and extract a versioned archive from [GitHub releases](https://github.com/HemantKumar822/flowkit/releases), or clone the [source repository](https://github.com/HemantKumar822/flowkit). npm registry publication is not available yet.
 
 ## Install for one user
 
