@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Margin — personal notes</title>
+  <style>
+    :root{--paper:#f6f3ec;--ink:#282923;--muted:#686a60;--line:#d9d7cc;--accent:#8d3d2b;--rail:#292e27;--rail-text:#f2f0e6;--white:#fffdf8;--focus:#a94b32;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--serif:Georgia,"Times New Roman",serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}button,input{font:inherit}button,a,input{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}a{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:4px}input:focus{outline:3px solid var(--focus);outline-offset:3px}.skip{position:absolute;left:16px;top:-100px;background:var(--white);padding:10px 18px;z-index:10}.skip:focus{top:12px}.app{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100svh}.rail{background:var(--rail);color:var(--rail-text);padding:38px 28px 26px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--serif);font-size:29px;letter-spacing:-1px}.brand-icon{width:25px;height:30px;border:1px solid #b8bea9;display:inline-flex;align-items:center;justify-content:center;transform:rotate(-7deg);font-family:var(--serif);font-size:21px;color:#d3d8bd}.workspace{font-size:12px;color:#b3bba8;margin:7px 0 48px;padding-left:37px}.nav-label{font-size:11px;color:#aab3a0;letter-spacing:1.2px;text-transform:uppercase;margin:0 12px 13px}.nav-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:4px;color:var(--rail-text);background:#3e4637;text-decoration:none;font-size:14px}.nav-item svg{flex:none}.nav-count{margin-left:auto;color:#cad1bd;font-variant-numeric:tabular-nums}.rail-bottom{margin-top:auto;padding-top:70px}.rail-note{font-family:var(--serif);font-size:20px;line-height:1.45;color:#c5ccb8;max-width:160px;margin:0 0 38px}.profile{display:flex;align-items:center;gap:10px;padding-top:20px;border-top:1px solid #52594a}.avatar{width:31px;height:31px;background:#d1d5bb;color:#333b2b;display:grid;place-items:center;border-radius:50%;font-family:var(--serif)}.profile-text{font-size:12px}.profile-text span{display:block;color:#abb49e;font-size:11px}.main{padding:0 64px 60px;min-width:0}.topbar{height:93px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;gap:15px}.topbar-path{display:flex;gap:12px;align-items:center}.topbar-path span:first-child{color:var(--ink)}.private{display:flex;align-items:center;gap:7px;white-space:nowrap}.content{max-width:1020px;margin:0 auto}.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:48px 0 33px}h1{font-family:var(--serif);font-size:clamp(42px,4.4vw,66px);font-weight:400;line-height:1.05;letter-spacing:-2.6px;margin:0 0 14px}.intro{margin:0;color:var(--muted);font-size:14px;max-width:460px}.new-button{background:var(--accent);border:1px solid var(--accent);color:var(--white);padding:11px 17px;border-radius:3px;display:flex;align-items:center;gap:8px;white-space:nowrap;min-height:44px}.new-button:hover{background:#773221}.composer{background:#eeeade;border:1px solid #d8d1bf;padding:25px 27px;margin:0 0 37px;border-radius:3px}.composer-heading{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:13px}.composer h2{margin:0;font-family:var(--serif);font-weight:400;font-size:23px;letter-spacing:-.4px}.composer-kicker{color:var(--muted);font-size:11px}.input-row{display:flex;gap:10px;align-items:flex-start}.field{flex:1;min-width:0}label{display:block;font-size:12px;font-weight:600;margin-bottom:8px}input{width:100%;background:var(--white);border:1px solid #aaa99c;border-radius:2px;padding:12px 13px;min-height:46px;color:var(--ink)}input::placeholder{color:#797b70}input[aria-invalid=true]{border-color:var(--accent)}.save-button{border:1px solid var(--ink);border-radius:2px;padding:12px 20px;background:var(--ink);color:var(--white);min-height:46px}.save-button:hover{background:#45473d}.field-meta{display:flex;justify-content:space-between;gap:15px;font-size:11px;color:var(--muted);margin-top:9px}.counter{white-space:nowrap;font-variant-numeric:tabular-nums}.form-error{color:#8c3021;font-size:13px;margin:10px 0 0}.form-error:empty{display:none}.collection-header{display:flex;justify-content:space-between;align-items:center;padding:0 0 13px;border-bottom:1px solid #a4a699;gap:14px}.collection-header h2{font-family:var(--serif);font-size:24px;letter-spacing:-.7px;font-weight:400;margin:0}.collection-header span{font-size:11px;color:var(--muted)}.notes{list-style:none;margin:0;padding:0}.note{display:grid;grid-template-columns:38px minmax(0,1fr) 70px;gap:12px;align-items:center;padding:23px 0;border-bottom:1px solid var(--line)}.note-number{font-size:11px;font-variant-numeric:tabular-nums;color:#777a6b}.note-title{font-family:var(--serif);font-size:23px;line-height:1.35;font-weight:400;letter-spacing:-.35px;overflow-wrap:anywhere;margin:0}.note-type{text-align:right;font-size:11px;color:var(--muted)}.state{padding:45px 12px 44px 50px;border-bottom:1px solid var(--line)}.state-mark{font-family:var(--serif);font-style:italic;font-size:37px;color:#8a8d78;display:block;line-height:1.2;margin-bottom:16px}.state h3{font-family:var(--serif);font-size:27px;font-weight:400;letter-spacing:-.6px;margin:0 0 10px}.state p{color:var(--muted);font-size:13px;max-width:395px;margin:0 0 18px}.text-button{border:0;border-bottom:1px solid currentColor;background:transparent;padding:3px 0;color:var(--accent);font-size:13px}.error-state{border-left:3px solid var(--accent);padding-left:23px;margin-top:22px;background:#eee8dc}.loading-line{height:12px;background:#dddccf;border-radius:2px;margin:15px 0;max-width:60%}.loading-line:nth-child(2){max-width:80%}.live-status{min-height:22px;font-size:12px;color:var(--muted);margin:14px 0}.footer{display:flex;justify-content:space-between;gap:18px;margin-top:56px;color:#74776a;font-size:11px}.footer em{font-family:var(--serif);font-size:14px}.hidden,[hidden]{display:none!important}
+    @media(min-width:1500px){.main{padding-left:90px;padding-right:90px}.page-head{padding-top:62px}}
+    @media(max-width:1050px){.app{grid-template-columns:200px minmax(0,1fr)}.rail{padding:32px 20px 24px}.main{padding:0 35px 40px}.page-head{align-items:flex-start}.composer{padding:22px}.intro{max-width:310px}.composer-kicker{display:none}}
+    @media(max-width:700px){.app{display:block}.rail{padding:19px 22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.brand{font-size:27px}.workspace,.nav-label,.rail-bottom{display:none}.nav-item{font-size:12px;padding:10px 11px;gap:9px}.nav-item svg{width:16px;height:16px}.nav-count{margin-left:10px}.main{padding:0 22px 30px}.topbar{height:63px;font-size:11px}.topbar-path{gap:8px}.page-head{padding:32px 0 25px;gap:16px}h1{font-size:45px;letter-spacing:-1.9px;margin-bottom:12px}.intro{font-size:13px;max-width:240px}.new-button{font-size:12px;padding:9px 11px;margin-top:2px}.composer{padding:19px 17px;margin-bottom:29px}.composer h2{font-size:22px}.input-row{display:block}.save-button{margin-top:12px;width:100%}.field-meta{font-size:10px}.collection-header h2{font-size:22px}.collection-header span{font-size:10px}.note{grid-template-columns:24px minmax(0,1fr);gap:10px;padding:20px 0}.note-title{font-size:22px}.note-type{display:none}.state{padding:33px 5px 32px 15px}.state h3{font-size:25px}.footer{margin-top:39px}.footer span:last-child{display:none}}
+    @media(max-width:370px){.rail,.main{padding-left:16px;padding-right:16px}.private span{display:none}.page-head{display:block}.new-button{margin-top:20px}.nav-count{margin-left:2px}}
+    @media(prefers-reduced-motion:no-preference){button{transition:background-color .15s ease}.note{animation:appear .2s ease-out}@keyframes appear{from{opacity:.35;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to notes</a>
+  <div class="app">
+    <aside class="rail" aria-label="Workspace navigation">
+      <div><a class="brand" href="#main"><span class="brand-icon" aria-hidden="true">m</span>Margin</a><p class="workspace">A little room to think.</p></div>
+      <nav aria-label="Notes"><p class="nav-label">Your workspace</p><a class="nav-item" href="#collection" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 3h11l3 3v15H5zM9 9h6M9 13h6M9 17h4"/></svg>All notes<span id="nav-count" class="nav-count">—</span></a></nav>
+      <div class="rail-bottom"><p class="rail-note">Good thoughts deserve a place to land.</p><div class="profile"><span class="avatar" aria-hidden="true">Y</span><div class="profile-text">Your personal space<span>Made for your thoughts</span></div></div></div>
+    </aside>
+    <main id="main" class="main" tabindex="-1">
+      <div class="topbar"><div class="topbar-path"><span>Personal workspace</span><span aria-hidden="true">/</span><span>All notes</span></div><div class="private"><svg width="13" height="15" viewBox="0 0 16 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="8" width="12" height="8" rx="1"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg><span>Just for you</span></div></div>
+      <div class="content">
+        <header class="page-head"><div><h1>All your notes.</h1><p class="intro">A home for passing thoughts, small discoveries,<br class="desktop-break"> and the things you want to keep.</p></div><button class="new-button" id="new-note" type="button"><span aria-hidden="true">+</span> New note</button></header>
+        <section class="composer" aria-labelledby="composer-heading"><div class="composer-heading"><h2 id="composer-heading">What's on your mind?</h2><span class="composer-kicker">Start with a thought. Keep it simple.</span></div><form id="note-form" novalidate><label for="title">Note title</label><div class="input-row"><div class="field"><input id="title" name="title" maxlength="120" required autocomplete="off" placeholder="An idea worth keeping…" aria-describedby="title-help title-error"><div class="field-meta"><span id="title-help">Give your thought a title. You can save up to 120 characters.</span><span id="counter" class="counter" aria-hidden="true">0 / 120</span></div></div><button class="save-button" id="save-note" type="submit">Save note</button></div><p id="title-error" class="form-error" role="alert"></p></form></section>
+        <section id="collection" aria-labelledby="collection-heading" aria-busy="true"><div class="collection-header"><h2 id="collection-heading">The collection</h2><span id="collection-count">Your notes, in one place</span></div><div id="loading" class="state" role="status"><h3>Gathering your thoughts…</h3><p>Loading your saved notes.</p><div class="loading-line" aria-hidden="true"></div><div class="loading-line" aria-hidden="true"></div></div><div id="empty" class="state" hidden><span class="state-mark" aria-hidden="true">A fresh page.</span><h3>Every collection starts with one thought.</h3><p>A question, a book to read, an idea for later. Save your first note above and make a little space for it here.</p><button type="button" id="empty-new" class="text-button">Write your first note</button></div><div id="load-error" class="state error-state" role="alert" hidden><h3>Your notes couldn't be loaded.</h3><p id="load-error-message">Check your connection and try again. Any title you've typed is still above.</p><button type="button" id="retry" class="text-button">Try loading again</button></div><ol id="notes" class="notes" aria-label="Saved notes" hidden></ol></section>
+        <p id="live-status" class="live-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <footer class="footer"><em>Leave a little margin for the unexpected.</em><span>A quieter place for your ideas.</span></footer>
+      </div>
+    </main>
+  </div>
+  <script>
+    'use strict';
+    const $ = id => document.getElementById(id);
+    const titleInput = $('title');
+    let notes = [];
+    let loading = false;
+    let saving = false;
+    let loadVersion = 0;
+    function focusComposer() { titleInput.focus(); titleInput.scrollIntoView({block:'center',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}); }
+    $('new-note').addEventListener('click', focusComposer);
+    $('empty-new').addEventListener('click', focusComposer);
+    titleInput.addEventListener('input', () => { $('counter').textContent = titleInput.value.length + ' / 120'; $('title-error').textContent = ''; titleInput.removeAttribute('aria-invalid'); });
+    function validNote(note) { return note && (typeof note.id === 'number' || typeof note.id === 'string') && typeof note.title === 'string'; }
+    function renderNotes() {
+      const fragment = document.createDocumentFragment();
+      notes.forEach((note,index) => {
+        const item = document.createElement('li'); item.className = 'note';
+        const number = document.createElement('span'); number.className = 'note-number'; number.textContent = String(index + 1).padStart(2,'0'); number.setAttribute('aria-hidden','true');
+        const heading = document.createElement('h3'); heading.className = 'note-title'; heading.textContent = note.title;
+        const type = document.createElement('span'); type.className = 'note-type'; type.textContent = 'Note';
+        item.append(number,heading,type); fragment.append(item);
+      });
+      $('notes').replaceChildren(fragment);
+      $('notes').hidden = notes.length === 0;
+      $('empty').hidden = notes.length !== 0;
+      $('nav-count').textContent = String(notes.length);
+      $('collection-count').textContent = notes.length === 1 ? '1 note saved' : notes.length + ' notes saved';
+    }
+    async function request(path, options = {}) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+      try {
+        const response = await fetch(path, {...options,signal:controller.signal});
+        let data;
+        try { data = await response.json(); } catch { throw new Error('The server sent an unexpected response. Please try again.'); }
+        if (!response.ok) {
+          if (response.status === 400) throw new Error('Use a title with 1 to 120 characters, then try saving again.');
+          throw new Error('The server could not complete the request. Please try again.');
+        }
+        return data;
+      } catch(error) {
+        if(error.name === 'AbortError') throw new Error('The request took too long. Please try again.');
+        if(error instanceof TypeError) throw new Error('We could not reach the server. Check your connection and try again.');
+        throw error;
+      } finally { clearTimeout(timeout); }
+    }
+    async function loadNotes() {
+      const version = ++loadVersion;
+      loading = true; $('collection').setAttribute('aria-busy','true'); $('loading').hidden = false; $('empty').hidden = true; $('notes').hidden = true; $('load-error').hidden = true; $('save-note').disabled = true;
+      try {
+        const data = await request('/api/notes');
+        if(!data || !Array.isArray(data.notes) || !data.notes.every(validNote)) throw new Error('The server sent an unexpected list. Please try loading again.');
+        if(version !== loadVersion) return;
+        notes = data.notes; renderNotes();
+      } catch(error) {
+        if(version !== loadVersion) return;
+        $('load-error').hidden = false; $('load-error-message').textContent = error.message + ' Any title you typed is still above.';
+      } finally {
+        if(version === loadVersion) { loading = false; $('loading').hidden = true; $('collection').setAttribute('aria-busy','false'); $('save-note').disabled = saving; }
+      }
+    }
+    $('retry').addEventListener('click', loadNotes);
+    $('note-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      if(saving || loading) return;
+      const title = titleInput.value.trim();
+      if(!title || title.length > 120) { $('title-error').textContent = 'Add a title with 1 to 120 characters.'; titleInput.setAttribute('aria-invalid','true'); titleInput.focus(); return; }
+      saving = true; $('save-note').disabled = true; $('save-note').textContent = 'Saving…'; $('title-error').textContent = ''; $('live-status').textContent = '';
+      try {
+        const note = await request('/api/notes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({title})});
+        if(!validNote(note)) throw new Error('The server returned an unexpected response. Reload your notes before trying again.');
+        notes.push(note); renderNotes(); $('load-error').hidden = true;
+        // Preserve edits made while the request was in flight.
+        if(titleInput.value.trim() === title) { titleInput.value = ''; $('counter').textContent = '0 / 120'; }
+        $('live-status').textContent = 'Note saved. Your collection has ' + notes.length + (notes.length === 1 ? ' note.' : ' notes.'); titleInput.focus();
+      } catch(error) { $('title-error').textContent = error.message; }
+      finally { saving = false; $('save-note').disabled = loading; $('save-note').textContent = 'Save note'; }
+    });
+    loadNotes();
+  </script>
+</body>
+</html>

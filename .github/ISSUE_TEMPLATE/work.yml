@@ -1,0 +1,25 @@
+name: Engineering task
+description: A focused problem with observable acceptance
+body:
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose and user outcome
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Expected behavior and acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, priority and owner
+  - type: textarea
+    id: validation
+    attributes:
+      label: Suggested validation and risks
+    validations:
+      required: true

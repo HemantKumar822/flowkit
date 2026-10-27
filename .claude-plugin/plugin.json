@@ -1,0 +1,7 @@
+{
+  "name": "flowkit",
+  "version": "0.3.0-preview.1",
+  "description": "Engineering workflow with durable state and current verification evidence. Host workflow validation pending.",
+  "license": "MIT",
+  "repository": "https://github.com/HemantKumar822/flowkit"
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "FlowKit"
+  short_description: "Proportional engineering with durable project evidence"
+  default_prompt: "Use $flowkit to inspect this project and carry the requested work through appropriate verification."
+policy:
+  allow_implicit_invocation: true

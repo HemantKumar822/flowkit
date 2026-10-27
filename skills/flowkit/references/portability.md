@@ -1,0 +1,9 @@
+# Host portability
+
+The portable unit is this self-contained skill directory and its Node >=22 helper. Git enables repository operations; gh authentication is optional for the CLI GitHub adapter. Tools belong to the current host. The core does not install third-party skills, launch agents, register hooks or alter editor configuration.
+
+`node <skill>/scripts/flowkit.mjs hosts` lists adapter targets and evidence. Installation supports `--host codex|claude|cursor`, `--scope user|project` (project scope requires explicit `--project PATH`). The custom fallback is `--host custom --skills-dir PATH`; legacy `--skills-dir` alone still works. User scope is the default. Reuse the same flags for uninstall. Updates require `--update`, preserve prior owned files and refuse local modifications.
+
+Codex user path is ~/.agents/skills; Claude Code is ~/.claude/skills; Cursor is ~/.cursor/skills. Project scope uses the corresponding directory inside the explicit project. These adapters only place an owned directory. They do not certify discovery or equivalent workflow behavior. Codex has real workflow evidence; Claude/Cursor have installation-adapter tests only until real sessions are evaluated. A generic editor can read SKILL.md directly only if it can also execute the relevant tools; manual reading alone does not grant capabilities.
+
+Run `doctor --project PATH` to inspect local tools and common optional integration paths. Plugin-installed or custom-path skills may be discovered by the host even when the filesystem probe misses them; an unavailable probe is not definitive absence. No integration is mandatory for the baseline procedure. The capability registry is advisory, not an installation manifest. Use only the host's actual browser/delegation/approval mechanisms and current authority. Missing features stay unverified.

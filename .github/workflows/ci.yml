@@ -1,0 +1,32 @@
+name: checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+concurrency:
+  group: checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [22, 24]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+      - run: npm run check
+      - run: npm run package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flowkit-${{ matrix.os }}-node${{ matrix.node }}
+          path: dist/

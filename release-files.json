@@ -1,0 +1,15 @@
+{
+  "required": [
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "package.json",
+    "plugin.json",
+    "bin",
+    "skills"
+  ],
+  "optional": ["assets", "docs/user", ".claude-plugin", ".codex-plugin"]
+}

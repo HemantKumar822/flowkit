@@ -1,0 +1,43 @@
+# gstack packaging and portability audit
+
+Observed 2026-10-27. Shallow-cloned actual source at commit `a50cf589656c0dc3f785af9b7c483861b13c8288`, committed `2026-10-27T03:18:12Z`; package version `1.91.265`. This is a source audit, not an installation or behavioral benchmark. No upstream setup scripts, paid evaluations, or remote writes were run.
+
+## What makes it reusable
+
+gstack is a collection of specialized skills plus a substantial runtime, not one universal prompt. Its public router is an entry point into product discovery, planning, design, review, browser QA, security, shipping and maintenance procedures. Cross-agent reuse is engineered explicitly.
+
+1. **Canonical templates and a generator.** `scripts/gen-skill-docs.ts` reads `.tmpl` sources, resolves shared placeholders, rewrites host paths and tool references, handles lazy sections, and emits skills, sections, metadata and a small agent digest. It supports generation in memory and failure on stale output. This keeps shared behavior maintainable while allowing different agent contracts. [Generator](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/scripts/gen-skill-docs.ts).
+2. **Typed host adapters.** `hosts/define-host.ts` supplies conservative defaults, shared runtime assets and tool-name transformations; individual `hosts/*.ts` declare installation paths, frontmatter restrictions, capabilities and suppressed features. A new editor is not supported merely because it reads Markdown. [Host factory](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/hosts/define-host.ts).
+3. **Capability loss is explicit.** Codex's adapter declares experimental support, prose questions, no native plan-mode/delegation assumptions, browser support and advisory safety hooks. It strips unsupported frontmatter, generates `agents/openai.yaml`, rewrites Claude paths to Codex paths, omits its own Codex second-opinion wrapper, and suppresses incompatible orchestration. These declarations describe this adapter, not inherent limitations of every Codex surface. [Actual Codex adapter](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/hosts/codex.ts).
+4. **Instruction-only fallback.** Rules-reading agents can receive `agents-digest/gstack-AGENTS.md`. That conveys methodology, not installed tools or enforced hooks. [Digest generator](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/scripts/gen-agents-digest.ts).
+
+## Installation is a product subsystem
+
+The real `setup` is a large Bash installer. PowerShell's `setup.ps1` locates Git for Windows Bash, explicitly rejects WSL Bash, validates prerequisites and delegates. Bun builds browser, design and PDF tools; installation may fetch Chromium. Windows also needs Node; security tooling has additional native prerequisites and can degrade to unavailable. This runtime is substantially heavier than FlowKit's dependency-free Node core. [Setup](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/setup), [PowerShell wrapper](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/setup.ps1), [Dependencies and commands](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/package.json).
+
+The implementation records host/scope/source/version/render paths in an atomically written install registry. Explicit host setup avoids changing other hosts. Owned generated files can be refreshed; user-owned files survive. Windows copies are staged before activation and interrupted swaps are recoverable. On symlink platforms, pulling source changes active payload before setup; upstream documents versioned payload directories as unfinished. [Registry implementation](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/bin/gstack-install-registry.sh), [Ownership and activation contract](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/docs/ADDING_A_HOST.md).
+
+Updates have `stable` and `main` channels, registration-aware refresh and migrations. Team mode can update automatically; FlowKit should retain explicit updates initially because that is its current promise. Removal is a dedicated tool covering installed assets and optional state retention. gstack's many hooks, state files, daemons and runtimes make removal much broader than deleting a skill folder. [Channel logic](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/bin/gstack-update-channel.sh), [Release policy](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/docs/releases.md), [Uninstaller](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/bin/gstack-uninstall).
+
+## Support evidence is deliberately tiered
+
+The host contract distinguishes full, experimental and instruction-only. Full requires installation conformance, a real representative workflow, upgrade evidence and a dated certification row. At this pinned source, the certification table lists Claude; Codex remains experimental pending specified periodic cases. Thus broad install support is not a claim of equal behavioral reliability across editors.
+
+`test/host-conformance.test.ts` really invokes setup in temporary homes and checks discovery paths, host isolation, no duplicate names, registry publication, readable status, valid runtime/section references and upgrades. Some fixture binaries are stubs: this suite proves installation contracts, not successful real browser/model behavior. [Conformance source](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/test/host-conformance.test.ts).
+
+CI separates secretless free tests, generated-document checks, Windows fresh-install runtime flows, paid model evaluations and optional native/platform qualification. The generated-doc workflow explicitly admits byte freshness covers tracked outputs; ignored alternate-host outputs are checked for generation success. Presence of these workflows is evidence of engineering design; this audit did not independently establish their current run results. [Generation CI](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/.github/workflows/skill-docs.yml), [Windows installation CI](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/.github/workflows/windows-setup-e2e.yml).
+
+## What FlowKit should adopt
+
+FlowKit already has durable evidence, a small runtime, owned installs and backup-based removal. Its present package remains Codex-oriented, private, without a chosen license; `plugin.json` is a candidate manifest, not verified marketplace distribution. References to local Superpowers/design skills do not make those dependencies available on another machine.
+
+- Keep one friendly FlowKit entry point, with independently readable procedures underneath. Add specialist entry points only when they have distinct useful invocation and evaluation contracts.
+- Separate portable core instructions and CLI from thin host adapters. Begin with Codex, then one other host; use an instruction-only digest elsewhere.
+- Publish a capability/support matrix and dated host evidence. Distinguish installed, structurally conformant and behaviorally exercised support. Never describe advisory prose as an enforced safety boundary.
+- Add clean-home per-host installation, repeat installation, conflict preservation, upgrade, rollback and uninstall checks. Test the packed release artifact from an unrelated directory, not only the source checkout.
+- Choose a license, explicit dependencies, versioned immutable releases, checksums and compatibility policy; include contribution/security instructions. Have CI verify generated adapters and packaged file inventory.
+- Expose missing optional capabilities through doctor/status. Avoid bundling an entire browser/security/model runtime until a clear user need justifies maintaining it.
+
+gstack is MIT-licensed, with its copyright notice required for substantial reuse; bundled third-party assets need their own notice review. [License](https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/LICENSE).
+
+**Conclusion:** FlowKit can become a durable public toolkit using these distribution practices. Its current narrower coordination/evidence role is defensible; parity with gstack's specialist breadth, host adapters or operational maturity is not established. Less lost context and fewer stale completion claims are plausible benefits of its mechanics. Net efficiency depends on task and process overhead; this source comparison provides no measured productivity claim.

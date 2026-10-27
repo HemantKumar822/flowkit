@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "auditedDate": "2026-10-27",
+  "sources": [
+    {
+      "id": "bmad",
+      "project": "BMAD Method",
+      "repository": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "commit": "61e01f82644c4bb533750cfa0d6d61ab61d2cc9b",
+      "adaptations": [
+        {
+          "id": "brief",
+          "path": "references/templates/product-brief.md",
+          "description": "Clarify users, problem, useful scope and evidence",
+          "changes": "Reorganized product narrative into a concise evidence-oriented brief, removed mandatory long-horizon vision and added delegated-decision/next-task handoff.",
+          "sha256": "73e8eb2a12d71e06a867d54ccc7a4c57f3a9ee8a8e9c647c6746bb801f2b781d"
+        },
+        {
+          "id": "story",
+          "path": "references/templates/story.md",
+          "description": "Turn requirements into observable acceptance and dependencies",
+          "changes": "Kept outcome, requirement sources, Given/When/Then, boundaries and verification; removed BMAD ticket runtime, memlog/TOML fields and remote-status duplication.",
+          "sha256": "9c6b87089d3e558e9761804b8d248e8017e62974e28097c7ef9a9a1804e52632"
+        },
+        {
+          "id": "architecture",
+          "path": "references/templates/architecture.md",
+          "description": "Record durable architecture rules and requirement mapping",
+          "changes": "Adapted architecture spine decisions, binding scope, invariants, conventions and deferred choices; removed BMAD metadata/runtime assumptions and retained rationale in project documents.",
+          "sha256": "939756c83a9c57e40ae87ea2b6a2831b18887927bbbfc4c843b94ce016da489f"
+        }
+      ],
+      "license": "MIT",
+      "licensePath": "third-party/bmad/LICENSE",
+      "licenseSourceSha256": "0aa79baf6328b4a1e694ce10a12ffc36d7666554da128dff0e8fcda0fc536a66",
+      "licenseSha256": "0aa79baf6328b4a1e694ce10a12ffc36d7666554da128dff0e8fcda0fc536a66",
+      "sourceFiles": [
+        {
+          "path": "skills/bmad-product-brief/assets/brief-template.md",
+          "url": "https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-product-brief/assets/brief-template.md",
+          "sha256": "bb28edf75d023067551c8d417b19b8803324e7acfb2ad0c80f882e9134f4c1f1"
+        },
+        {
+          "path": "skills/bmad-agent-po/assets/ticket-template.md",
+          "url": "https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-agent-po/assets/ticket-template.md",
+          "sha256": "02167ba264c555aea6be0ddc5cbad00857c784c5eeede50280299180cdddb261"
+        },
+        {
+          "path": "skills/bmad-architecture/assets/spine-template.md",
+          "url": "https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-architecture/assets/spine-template.md",
+          "sha256": "9dfeedef63217d9f988addf39fc86893cd7bbc12d4da85043650e4cc8b7291b2"
+        }
+      ],
+      "notices": [
+        {
+          "path": "third-party/bmad/CONTRIBUTORS.md",
+          "sha256": "d6dc77f6fcfcfca9eacc6a53b01f647017296e5cefc0596c927c62f151ebfc16"
+        },
+        {
+          "path": "third-party/bmad/TRADEMARK.md",
+          "sha256": "d97f7488fc41e365e86785208ca42f8343f59170e3a79442d9bd709e66b52338"
+        }
+      ]
+    },
+    {
+      "id": "superpowers",
+      "project": "Superpowers",
+      "repository": "https://github.com/obra/superpowers",
+      "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "adaptations": [
+        {
+          "id": "independent-review",
+          "path": "references/templates/independent-review.md",
+          "description": "Inspect a bounded change against requirements with calibrated findings",
+          "changes": "Condensed reviewer inputs, read-only boundaries, actual-code assessment, declined-to-judge output and severity calibration; replaced harness-specific dispatch and fixed seat rules with current host authority.",
+          "sha256": "59be1a2359fab1b59e889b3df7828e4fbcecefd73b767dbacabb8bde48897a86"
+        }
+      ],
+      "license": "MIT",
+      "licensePath": "third-party/superpowers/LICENSE",
+      "licenseSourceSha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "licenseSha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "sourceFiles": [
+        {
+          "path": "skills/requesting-code-review/code-reviewer.md",
+          "url": "https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/requesting-code-review/code-reviewer.md",
+          "sha256": "82e370be6b3447523816286195571e4216ba56ba1ad6ad0e87862294c4c78dcb"
+        }
+      ]
+    },
+    {
+      "id": "gstack",
+      "project": "gstack",
+      "repository": "https://github.com/garrytan/gstack",
+      "commit": "a50cf589656c0dc3f785af9b7c483861b13c8288",
+      "adaptations": [
+        {
+          "id": "engineering-review",
+          "path": "references/templates/engineering-review.md",
+          "description": "Review scope, architecture, code quality, tests and relevant performance",
+          "changes": "Adapted scope/evidence, architecture/code/test/performance passes and review record/handoff outputs; removed gstack helpers, fixed paths, telemetry, required outside models and unconditional outputs.",
+          "sha256": "99efc68a3004956166a4177c460a221f784c029aa260540c0a9641a970846e0c"
+        }
+      ],
+      "license": "MIT",
+      "licensePath": "third-party/gstack/LICENSE",
+      "licenseSourceSha256": "e56fbb5b3d95756f3fa1cfefa24732ec79f18ece1ad08a4e79e00df57e8b198c",
+      "licenseSha256": "e56fbb5b3d95756f3fa1cfefa24732ec79f18ece1ad08a4e79e00df57e8b198c",
+      "sourceFiles": [
+        {
+          "path": "plan-eng-review/sections/checklist.md.tmpl",
+          "url": "https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/plan-eng-review/sections/checklist.md.tmpl",
+          "sha256": "83024dfe2cdb6b3b46140929841f0d902e1bab1483ad50fb94732973c86a05ff"
+        },
+        {
+          "path": "plan-eng-review/sections/review-sections.md.tmpl",
+          "url": "https://github.com/garrytan/gstack/blob/a50cf589656c0dc3f785af9b7c483861b13c8288/plan-eng-review/sections/review-sections.md.tmpl",
+          "sha256": "8c69a5844ca0c7ca48220a5e154f282e8cad13a415f007418c1fb2a1c99c8c1e"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "flowkit",
+  "version": "0.3.0-preview.1",
+  "description": "Proportional engineering with durable project state and verification evidence.",
+  "license": "MIT",
+  "keywords": ["engineering", "verification", "agent-skills"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "FlowKit",
+        "shortDescription": "Project continuity and current verification evidence",
+        "brandColor": "#176B5B",
+        "defaultPrompt": ["Use FlowKit to inspect this project and plan the next useful step."]
+      }
+    }
+  },
+  "repository": "https://github.com/HemantKumar822/flowkit"
+}

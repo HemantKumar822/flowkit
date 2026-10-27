@@ -1,0 +1,38 @@
+{
+  "name": "flowkit-codex",
+  "version": "0.3.0-preview.1",
+  "private": true,
+  "description": "A portable engineering workflow with durable project state and current verification evidence",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "flowkit": "bin/flowkit.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "plugin.json",
+    ".claude-plugin/",
+    ".codex-plugin/",
+    "assets/",
+    "docs/user/",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs examples/notes/api.test.mjs",
+    "check": "node scripts/check.mjs",
+    "evaluate": "node scripts/evaluate.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "repository": {
+    "url": "git+https://github.com/HemantKumar822/flowkit.git",
+    "type": "git"
+  }
+}
