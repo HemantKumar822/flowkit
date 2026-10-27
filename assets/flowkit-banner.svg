@@ -9,7 +9,7 @@
   <rect width="1200" height="400" rx="24" fill="url(#grid)"/>
   <path d="M0 330Q330 260 600 330T1200 300V400H0Z" fill="#203e34" opacity=".045"/>
   <rect x="60" y="56" width="142" height="28" rx="14" fill="#203e34"/>
-  <text x="131" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#fff">FLOWKIT / 0.2</text>
+  <text x="131" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#fff">FLOWKIT / 0.3</text>
   <text x="60" y="176" font-family="Georgia, serif" font-size="80" fill="#203e34">FlowKit</text>
   <text x="64" y="218" font-family="Arial, sans-serif" font-size="20" fill="#4b5b50">Clear intent. Working software.</text>
   <text x="64" y="248" font-family="Arial, sans-serif" font-size="20" fill="#4b5b50">Evidence that lasts.</text>
